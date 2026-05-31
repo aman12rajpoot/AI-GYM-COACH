@@ -18,3 +18,5 @@ GYM_TRAINER/data.db
 # OS files
 .DS_Store
 Thumbs.db
+
+*.db
