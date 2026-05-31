@@ -26,7 +26,7 @@ def main():
         page_icon="🏋️‍♀️",
         page_title="AI Real-time GYM Coach",
         initial_sidebar_state="expanded",
-        layout="centered"
+        layout="wide"
     )
 
     load_css(os.path.join(os.getcwd(), "static", "style.css"))
@@ -140,9 +140,19 @@ def main():
 
             st.subheader("Progress")
 
-            st.metric("Total Reps", f"{total_reps}")
-            st.metric("Current Set Reps", f"{current_set_reps} / {reps_per_set}")
-            st.metric("Sets Completed", f"{sets_completed} / {target_sets}")
+            col1, col2, col3 = st.columns(3)
+
+            with col1:
+                st.metric("🔥 Total Reps", total_reps)
+
+            with col2:
+                st.metric("💪 Current Set", f"{current_set_reps}/{reps_per_set}")
+
+            with col3:
+                st.metric("🏆 Sets Done", f"{sets_completed}/{target_sets}")
+
+            progress = sets_completed / target_sets if target_sets > 0 else 0
+            st.progress(progress)
 
             st.divider()
 
@@ -176,8 +186,23 @@ def main():
                 st.metric("Torso Angle", f"{st.session_state.torso_angle}°")
                 st.metric("Balance Status", st.session_state.balance_status)
 
-    st.title("AI Real-time GYM Coach")
-    st.markdown("#### Real-time pose detection with proactive AI voice coaching")
+    st.markdown("""
+    <div style="
+    text-align:center;
+    padding:25px;
+    border-radius:20px;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    margin-bottom:20px;
+    ">
+    <h1 style="color:white;">
+    🏋️ AI Gym Coach
+    </h1>
+
+    <p style="color:#cbd5e1;font-size:18px;">
+    Real-Time Pose Detection • AI Voice Coaching • Rep Tracking
+    </p>
+    </div>
+    """, unsafe_allow_html=True)
  
     if st.session_state.get("audio_to_play"):
         autoplay_audio(st.session_state.audio_to_play)
