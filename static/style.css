@@ -179,3 +179,17 @@ div[role="menuitem"] {
   background-color: #181D2A !important;
   color: #fff;
 }
+
+
+
+#MainMenu {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
