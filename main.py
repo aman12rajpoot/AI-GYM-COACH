@@ -187,22 +187,22 @@ def main():
                 st.metric("Balance Status", st.session_state.balance_status)
 
     st.markdown("""
-    <div style="
-    text-align:center;
-    padding:25px;
-    border-radius:20px;
-    background:linear-gradient(135deg,#0f172a,#1e293b);
-    margin-bottom:20px;
-    ">
-    <h1 style="color:white;">
-    🏋️ AI Gym Coach
-    </h1>
+            <div style="
+            text-align:center;
+            padding:25px;
+            border-radius:20px;
+            background:linear-gradient(135deg,#0f172a,#1e293b);
+            margin-bottom:20px;
+            ">
+            <h1 style="color:white;">
+            🏋️ AI Gym Coach
+            </h1>
 
-    <p style="color:#cbd5e1;font-size:18px;">
-    Real-Time Pose Detection • AI Voice Coaching • Rep Tracking
-    </p>
-    </div>
-    """, unsafe_allow_html=True)
+            <p style="color:#cbd5e1;font-size:18px;">
+            Real-Time Pose Detection • AI Voice Coaching • Rep Tracking
+            </p>
+            </div>
+            """, unsafe_allow_html=True)
  
     if st.session_state.get("audio_to_play"):
         autoplay_audio(st.session_state.audio_to_play)
